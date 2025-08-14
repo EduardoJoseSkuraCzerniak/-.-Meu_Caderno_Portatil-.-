@@ -620,44 +620,65 @@
         display: block;
     }
 
-/* Box-info / Caixa de Informação */
-.box-info {
-    position: relative;
-    border: 1.8px solid rgba(0, 119, 204, 0.10);
-    background: rgba(234, 244, 255, 0.95);
-    padding: 14px;
-    border-radius: 12px;
-    margin: 16px 0;
-    font-family: 'Comic Neue', cursive;
-    transition: transform .28s ease, box-shadow .28s ease;
-    box-shadow: 0 8px 20px rgba(9, 20, 40, 0.04);
-}
-/* */
-.box-info::before {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    inset: -8px;
-    border-radius: calc(12px + 8px);
-    background: linear-gradient(90deg, rgba(77, 224, 255, 0.06), rgba(154, 123, 255, 0.04));
-    filter: blur(10px);
-    z-index: -1;
-    animation: neon-border 8s ease-in-out infinite;
-}
-/* Hover */
-.box-info:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 44px rgba(9, 20, 40, 0.08);
-}
+/* Box info / 📦 Caixa de informação */
+    .box-info {
+        /* Relativo para posicionamento do ::before */
+        position: relative; 
+        /* Borda fina */
+        border: 1.8px solid var(--box-info-border); 
+        /* Fundo */
+        background: var(--box-info-bg); 
+        /* Espaçamento interno */
+        padding: var(--box-info-padding);
+        /* Arredondamento */
+        border-radius: var(--box-info-radius); 
+        /* Espaço vertical externo */
+        margin: 16px 0; 
+        /* Fonte */
+        font-family: var(--box-info-font); 
+        /* Animação ease = suave */
+        transition: transform .28s ease, box-shadow .28s ease; 
+        box-shadow: 0 8px 20px var(--box-info-shadow); /* Sombra inicial */
+    }
+    /* Brilho 🔅 neon externo */
+    .box-info::before {
+        content: "";
+        /* Não bloqueia cliques de elementos sobrepostos */
+        pointer-events: none; 
+        /* Posicionado em relação ao .box-info */
+        position: absolute; 
+        /* No inset valores negativos aummentam o elemento */
+        inset: -8px; 
+        /* Arredondamento proporcional */
+        border-radius: calc(var(--box-info-radius) + 8px); 
+        /* Fundo com gradiente linear de 2 cores */
+        background: linear-gradient(
+            90deg,
+            var(--box-info-glow1),
+            var(--box-info-glow2)
+        );
+        /* Desfoque para efeito de brilho */
+        filter: blur(10px); 
+        /* Fica atrás da caixa - Z é profundidade de empilhamento */
+        z-index: -1; 
+        /* Animação contínua  */
+        animation: neon-border 8s ease-in-out infinite; 
+    }
+    /* Interação ao passar o 💻👆💢 mouse */
+    .box-info:hover {
+        /* Leve elevação de altura */
+        transform: translateY(-6px); 
+        /* Sombra mais intensa */
+        box-shadow: 0 24px 44px var(--box-info-shadow-hover); 
+    }
 
-/* */
+/* Badges / 🔖 Etiquetas */
 .badges {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
     margin-bottom: 10px;
 }
-
 .badge {
     padding: 6px 10px;
     border-radius: 10px;
@@ -667,139 +688,116 @@
     transition: transform .16s ease, box-shadow .16s ease;
     white-space: nowrap;
 }
-
 .badge:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
-
 /* Badges coloridas pastel */
 .badge.vermelho-magenta-pastel {
     background: linear-gradient(180deg, #ffd6e9, #ffb3d1);
     color: #8a003b;
     border-color: rgba(138, 0, 59, 0.15);
 }
-
 .badge.vermelho-pastel {
     background: linear-gradient(180deg, #ffd6d6, #ffb3b3);
     color: #7f1a1a;
     border-color: rgba(127, 26, 26, 0.15);
 }
-
 .badge.laranja-pastel {
     background: linear-gradient(180deg, #ffe6cc, #ffd1a3);
     color: #7f3d00;
     border-color: rgba(127, 61, 0, 0.15);
 }
-
 .badge.amarelo-pastel {
     background: linear-gradient(180deg, #fff9cc, #fff4a3);
     color: #7f6b00;
     border-color: rgba(127, 107, 0, 0.15);
 }
-
 .badge.amarelo-esverdeado-pastel {
     background: linear-gradient(180deg, #f5ffcc, #ecffa3);
     color: #637f00;
     border-color: rgba(99, 127, 0, 0.15);
 }
-
 .badge.verde-limao-pastel {
     background: linear-gradient(180deg, #e0ffcc, #c8ffa3);
     color: #4d7f00;
     border-color: rgba(77, 127, 0, 0.15);
 }
-
 .badge.verde-floresta-pastel {
     background: linear-gradient(180deg, #d6ffdd, #b3ffc4);
     color: #0f6630;
     border-color: rgba(15, 102, 48, 0.15);
 }
-
 .badge.turquesa-pastel {
     background: linear-gradient(180deg, #ccfff7, #a3ffef);
     color: #007f73;
     border-color: rgba(0, 127, 115, 0.15);
 }
-
 .badge.ciano-pastel {
     background: linear-gradient(180deg, #ccf9ff, #a3f0ff);
     color: #005e7f;
     border-color: rgba(0, 94, 127, 0.15);
 }
-
 .badge.azul-royal-pastel {
     background: linear-gradient(180deg, #d6e4ff, #b3ccff);
     color: #003d7f;
     border-color: rgba(0, 61, 127, 0.15);
 }
-
 .badge.azul-klein-pastel {
     background: linear-gradient(180deg, #d6dbff, #b3baff);
     color: #1a1f7f;
     border-color: rgba(26, 31, 127, 0.15);
 }
-
 .badge.violeta-pastel {
     background: linear-gradient(180deg, #e6ccff, #d1a3ff);
     color: #4d007f;
     border-color: rgba(77, 0, 127, 0.15);
 }
-
 .badge.roxo-pastel {
     background: linear-gradient(180deg, #ebccff, #dba3ff);
     color: #5e007f;
     border-color: rgba(94, 0, 127, 0.15);
 }
-
 .badge.lilas-pastel {
     background: linear-gradient(180deg, #f1ccff, #e3a3ff);
     color: #66007f;
     border-color: rgba(102, 0, 127, 0.15);
 }
-
 .badge.vinho-pastel {
     background: linear-gradient(180deg, #ffd6e0, #ffb3c4);
     color: #7f0033;
     border-color: rgba(127, 0, 51, 0.15);
 }
-
 .badge.rosa-pastel {
     background: linear-gradient(180deg, #ffe0eb, #ffc2d6);
     color: #7f1a4d;
     border-color: rgba(127, 26, 77, 0.15);
 }
-
 .badge.pessego-pastel {
     background: linear-gradient(180deg, #ffe6d6, #ffd1b3);
     color: #7f3d1a;
     border-color: rgba(127, 61, 26, 0.15);
 }
-
 .badge.bege-pastel {
     background: linear-gradient(180deg, #fff3e0, #ffe6cc);
     color: #7f5a1a;
     border-color: rgba(127, 90, 26, 0.15);
 }
-
 .badge.marrom-caqui-pastel {
     background: linear-gradient(180deg, #f0e6d6, #e0d1b3);
     color: #5a3d1a;
     border-color: rgba(90, 61, 26, 0.15);
 }
-
 .badge.cinza-pastel {
     background: linear-gradient(180deg, #f2f2f2, #e0e0e0);
     color: #4d4d4d;
     border-color: rgba(77, 77, 77, 0.15);
 }
-
 .badge.branco {
     background: linear-gradient(180deg, #ffffff, #f7f7f7);
     color: #333333;
     border-color: rgba(0, 0, 0, 0.08);
 }
-
 /* Hover e animação suave */
 .badge.vermelho-magenta-pastel:hover,
 .badge.vermelho-pastel:hover,
