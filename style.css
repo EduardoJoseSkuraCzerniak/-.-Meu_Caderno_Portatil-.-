@@ -1,0 +1,1113 @@
+/* ===========================
+    Tokens / Variáveis 🌎 Globais / Raiz 🌱 do Documento
+   =========================== */
+    :root {
+        /* Raio padrão para bordas */
+        --radius: 12px;
+        /* Espaçamento padrão */
+        --pad: 20px;
+        /* Largura máxima de containers */
+        --maxw: 1000px;
+        /* Cor neutra para divisória (linhas suaves) */
+        --divider-muted: var(--muted);     
+        /* Cor de destaque (símbolos decorativos) */     
+        --divider-accent: var(--accent-mid);    
+        /* Cor principal do texto/divisor */
+        --divider-primary: var(--div-pri, #0077cc);      
+        /* Cor dos ícones laterais */       
+        --divider-icon: var(--div-ico, #99caff);      
+        /* Cor principal dos divisores alternativos */
+        --divider-alt-color: var(--accent-mid); 
+        /* Tamanho base da fonte dos símbolos */
+        --divider-alt-size: 1em;                
+        /* Cores principais da box-info */
+        --box-info-border: rgba(0, 119, 204, 0.10);  /* Borda suave */
+        --box-info-bg: rgba(234, 244, 255, 0.95);    /* Fundo translúcido */
+        --box-info-shadow: rgba(9, 20, 40, 0.04);    /* Sombra suave */
+        --box-info-shadow-hover: rgba(9, 20, 40, 0.08); /* Sombra no hover */
+        /* Gradiente de brilho */
+        --box-info-glow1: rgba(77, 224, 255, 0.06);
+        --box-info-glow2: rgba(154, 123, 255, 0.04);
+        /* Configurações gerais */
+        --box-info-radius: 12px;  /* Raio do arredondamento */
+        --box-info-padding: 14px; /* Espaçamento interno */
+        --box-info-font: 'Comic Relief', cursive;          
+    }
+
+/* Base / Texto 📝 Customizado */
+    .custom-text {
+        /* Negrito */
+        font-weight: bold;
+        /* Distância entre texto e sublinhado */  
+        text-underline-offset: 4px;
+        /* Espressura da linha de sublinhado */
+        text-decoration-thickness: 2px;
+    }
+
+/* Neon 🎇 and Highlight / Keyframes */
+    /* ⏩ Gradiente destacado animado (esquerda para direita) */
+    @keyframes highlight-glow {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    /* 💡 Brilho neon pulsante */
+    @keyframes neon-border {
+        0% {
+            box-shadow: 0 0 5px var(--neon1, #0077cc),
+                        0 0 10px var(--neon2, #99caff);
+        }
+        50% {
+            box-shadow: 0 0 12px var(--neon3, #3399ff),
+                        0 0 20px var(--neon4, #b3d9ff);
+        }
+        100% {
+            box-shadow: 0 0 5px var(--neon1, #0077cc),
+                        0 0 10px var(--neon2, #99caff);
+        }
+    }
+    /* 🪔 Brilho neon pulsante suave */
+    @keyframes neonPulseSlow {
+        0%   { transform: scale(.996); opacity: .82; }
+        50%  { transform: scale(1.01); opacity: 1; }
+        100% { transform: scale(.996); opacity: .82; }
+    }
+        /* 🦗 Brilho neon pulsante translúcido */
+    @keyframes highlightShift {
+    0% {
+        box-shadow: 0 0 8px var(--highlight1, rgba(77, 224, 255, 0.04)),
+                    0 0 18px var(--highlight2, rgba(154, 123, 255, 0.02));
+    }
+    50% {
+        box-shadow: 0 0 18px var(--highlight1-strong, rgba(77, 224, 255, 0.12)),
+                    0 0 30px var(--highlight2-strong, rgba(154, 123, 255, 0.05));
+    }
+    100% {
+        box-shadow: 0 0 8px var(--highlight1, rgba(77, 224, 255, 0.04)),
+                    0 0 18px var(--highlight2, rgba(154, 123, 255, 0.02));
+    }
+    }
+
+/* Animação de sublinhado 🎨 gradiente */
+    @keyframes underline-anim {
+        0%   { background-position: 0% 100%; }
+        50%  { background-position: 100% 100%; }
+        100% { background-position: 0% 100%; }
+    }
+    /* 🌊 Animado */
+    .animado {
+        background-size: 200% 3px;
+        background-repeat: no-repeat;
+        background-position: 0% 100%;
+        animation: underline-anim 2s linear infinite;
+        text-decoration: none;
+        padding-bottom: 2px;
+        background-image: linear-gradient(
+                                            to right, var(--underline-color, #0077cc), 
+                                            transparent, var(--underline-color, #0077cc)
+                                        );
+    }
+
+/* Tipos de ➿ sublinhado */
+    /* ➖ Reto */
+    .reto { text-decoration-line: underline; text-decoration-style: solid; }  
+    /* ➿ Ondulado */
+    .ondulado { text-decoration-line: underline; text-decoration-style: wavy; }   
+    /* 🎬 Tracejado */
+    .tracejado { text-decoration-line: underline; text-decoration-style: dashed; }
+    /* 🚥 Pontilhado */
+    .pontilhado { text-decoration-line: underline; text-decoration-style: dotted; }
+    /* 🥢 Duplo  */
+    .duplo { text-decoration-line: underline; text-decoration-style: double; }
+
+/* 🎨 Kit de cores para textos - Legíveis em fundo claro */
+
+    /* 🔴 Vermelhos */
+    .custom-text-vermelho { /* ❤️ Vermelho clássico */
+        --color: #CC0000;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-vinho { /* 🍷 Vinho profundo */
+        --color: #722F37;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-magenta { /* 🌸 Magenta vibrante */
+        --color: #CC00CC;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+
+    /* 🟠 Laranjas */
+    .custom-text-laranja { /* 🍊 Laranja queimado */
+        --color: #E67300;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-pessego { /* 🍑 Pêssego */
+        --color: #CC855A;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-salmao-queimado { /* 🍤 Salmão queimado */
+        --color: #E9967A;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+
+    /* 🟡 Amarelos e dourados */
+    .custom-text-amarelo { /* 🏆 Amarelo dourado queimado */
+        --color: #B3A300;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-amarelo-esverdeado { /* 🌵 Amarelo-esverdeado */
+        --color: #7FBF00;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+
+    /* 🟢 Verdes */
+    .custom-text-verde-limao { /* 🍏 Verde limão */
+        --color: #32CD32;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-verde-floresta { /* 🌲 Verde floresta */
+        --color: #228B22;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-verde-agua { /* 🔫 Verde água */
+        --color: #20B2AA;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-verde-menta { /* 🍃 Verde menta */
+        --color: #98FF98;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+
+    /* 🔵 Azuis */
+    .custom-text-ciano { /* 🥽 Ciano */
+        --color: #00FFFF;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-turquesa { /* 🐬 Turquesa */
+        --color: #40E0D0;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-azul-celeste { /* 🧣 Azul celeste */
+        --color: #87CEEB;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-azul-tiffany { /* 🧪 Azul tiffany */
+        --color: #0ABAB5;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-azul-royal { /* 👑 Azul royal */
+        --color: #4169E1;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-azul-klein { /* 👖 Azul klein */
+        --color: #002FA7;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-azul-marinho { /* 🦈 Azul marinho */
+        --color: #000080;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+
+    /* 🟣 Roxos */
+    .custom-text-anil { /* 🎶 Anil */
+        --color: #4B0082;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-violeta { /* 🔮 Violeta */
+        --color: #8F00FF;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-purpura-eletrica { /* 🍇 Púrpura elétrica */
+        --color: #BF00FF;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-roxo { /* 🟣 Roxo */
+        --color: #800080;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-lilas { /* 💜 Lilás suave */
+        --color: #A080A0;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+
+    /* 🌸 Rosas */
+    .custom-text-rosa-pink { /* 👛 Rosa pink */
+        --color: #CC0F70;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-rosa-chiclete { /* 🧁 Rosa chiclete */
+        --color: #CC4E89;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-rosa-pastel { /* 🍥 Rosa pastel */
+        --color: #FFB6C1;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+
+    /* ⚪ Tons neutros */
+    .custom-text-marrom-caqui { /* 🥜 Marrom caqui */
+        --color: #9A9440;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-marrom-chocolate { /* 🍫 Marrom chocolate */
+        --color: #A0521D;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-bege { /* 🩹 Bege */
+        --color: #A89F7A;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-cinza-escuro { /* 🌑 Cinza escuro */
+        --color: #2F4F4F;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+    .custom-text-preto { /* ⚫ Preto */
+        --color: #000000;
+        color: var(--color);
+        text-decoration-color: var(--color);
+    }
+
+/*  Base 📦 */
+    /* HTML 🌏 Base */
+    html {
+        /* Altura mínima igual à tela inteira */
+        height: 100%;
+    }
+    /* Body 🕺 */
+    body {
+        /* Altura mínima igual à tela inteira */
+        height: 100%;
+        /*  Fonte 📰 padrão (com fallback caso a principal falhe) */
+        font-family: 'Comfortaa', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+        /* 🎯 Cor do texto vinda de variável global */
+        color: var(--text);
+        /* 📏 Espaçamento interno do body */
+        padding: 14px;
+        /* 📚 Altura da linha para melhor legibilidade */
+        line-height: 1.7;
+        /* 🧭 Suavização da fonte para diferentes sistemas */
+        -webkit-font-smoothing: antialiased; /* Safari / Chrome */
+        -moz-osx-font-smoothing: grayscale; /* Firefox / macOS */
+    }
+    
+
+/* 🚢 Container Base */
+    .container {
+        /* Relativo para posicionamento de elementos */
+        position: relative;
+        /* Largura Máxima */
+        max-width: var(--maxw);
+        /* Margem externa centralizada */
+        margin: 14px auto;
+        /* Fundo Card */
+        background: var(--card-bg);
+        /* Espaçamento */
+        padding: var(--pad);
+        /* Arredondamento dos cantos - raio de círculo */
+        border-radius: calc(var(--radius) + 2px);
+        /* Borda principal */
+        border: 2px solid var(--accent, #0077cc);
+        /* Conteúdo pode ultrapassar levemente os limites */
+        overflow: visible;
+        /* Transições */
+        transition: 
+            transform .35s cubic-bezier(.2, .9, .3, 1), /* Velocidade curvada */
+            box-shadow .35s ease;
+        /* Animação neon borda - desacelera, acelera no meio, desacelera */
+        animation: neon-border 4s infinite ease-in-out;
+        /* Sombra inicial */
+        box-shadow: 0 0 12px var(--accent-rgba, rgba(0, 119, 204, 0.18));
+    }
+    /* ✨ Efeito neon externo com pseudo-elemento - maior e atrás */
+    .container::after {
+        /* Pseudo-elemento vazio para efeito visual */
+        content: "";
+        pointer-events: none;
+        /* Posicionado absoluto, ocupando área maior que o container */
+        position: absolute;
+        inset: -10px;
+        /* Arredondamento maior para encaixar o brilho */
+        border-radius: calc(var(--radius) + 10px);
+        /* Gradiente do brilho */
+        background: var(--container-glow, 
+            linear-gradient(
+                90deg, 
+                rgba(77, 224, 255, 0.12), 
+                rgba(154, 123, 255, 0.08), 
+                rgba(111, 241, 184, 0.06)
+            )
+        );
+        /* Suaviza o brilho */
+        filter: blur(14px);
+        /* Coloca atrás do container */
+        z-index: -1;
+        /* Opacidade do efeito */
+        opacity: 0.95;
+        /* Animação de pulsação */
+        animation: neonPulseSlow 8.5s ease-in-out infinite;
+    }
+    /* 📌 Efeito de destaque no hover ou foco interno */
+    .container:focus-within,
+    .container:hover {
+        /* Levanta o container levemente */
+        transform: translateY(-5px);
+        /* Sombras mais fortes ao interagir */
+        box-shadow: 
+            0 28px 60px rgba(9, 20, 40, 0.12), 
+            0 0 36px rgba(77, 224, 255, 0.10) inset;
+        /* Remove a animação para não conflitar com o destaque */
+        animation: none;
+    }
+
+
+/* Heading 📃 */
+    /* Título 📇 Principal */
+    h1 {
+        /* Alinhamento flexível */
+        display: flex;
+        /* Espaçamento de elementos filhos */
+        gap: 12px;
+        /* Centralizado horizontalmente e verticalmente */
+        align-items: center;
+        justify-content: center;
+        /* Quebra de linha */
+        flex-wrap: wrap;
+        /* Fonte */
+        font-family: 'Fredoka', sans-serif;
+        color: var(--accent-dark);
+        /* Margem externa */
+        margin: 6px 0 10px;
+    }
+    /* 👈 Título Esquerdo - Negrito */
+    h1 .title-left {
+        font-weight: 700;
+    }
+    /* 👉 Título Direito - Tamanho diminuido */
+    h1 .title-right {
+        font-size: .95em;
+    }
+
+/* Highlight ✨ / Destaque */
+    .highlight {
+        /* Comportamento de linha de texto */
+        display: inline-block;
+        /* Espaçamento interno */
+        padding: 4px 8px;
+        /* Bordas arredondadas */
+        border-radius: 6px;
+        /* Negrito */
+        font-weight: bold;
+        /* Cor do texto (variável) */
+        color: var(--accent-dark);
+        /* Tamanho do fundo para animação */
+        background-size: 300% 100%;
+        /* Animação de gradiente e transição suave */
+        animation: highlight-glow 3s infinite linear;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        /* Sombra */
+        box-shadow: 0 0 10px rgba(3, 60, 100, 0.12);
+        /* Altura da linha */
+        line-height: 1.3;
+    }
+    /* Efeito hover */
+    .highlight:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 0 16px rgba(0, 119, 204, 0.2);
+    }
+    /* Tom 1 - Azul 🧊 bebê */
+    .highlight-tom1 { 
+        background: linear-gradient(
+            90deg, 
+            var(--tom1-start, #b3d9ff), 
+            var(--tom1-mid, #e6f7ff), 
+            var(--tom1-end, #b3d9ff)
+        );
+    }
+    /* Tom 2 - Azul 🧼 celeste */
+    .highlight-tom2 {
+        background: linear-gradient(
+            90deg, 
+            var(--tom2-start, #99ccff), 
+            var(--tom2-mid, #cce6ff), 
+            var(--tom2-end, #99ccff)
+        );
+    }
+    /* Tom 3 - Azul 👔 céu */
+    .highlight-tom3 {
+        background: linear-gradient(
+            90deg, 
+            var(--tom3-start, #80bfff), 
+            var(--tom3-mid, #b3daff), 
+            var(--tom3-end, #80bfff)
+        );
+    }
+    /* Tom 4 - Azul 🐬 médio */
+    .highlight-tom4 {
+        background: linear-gradient(
+            90deg, 
+            var(--tom4-start, #66b2ff), 
+            var(--tom4-mid, #99ccff), 
+            var(--tom4-end, #66b2ff)
+        );
+    }
+    /* Tom 5 - Azul 🧢 intenso */
+    .highlight-tom5 {
+        background: linear-gradient(
+            90deg, 
+            var(--tom5-start, #4da6ff), 
+            var(--tom5-mid, #80c1ff), 
+            var(--tom5-end, #4da6ff)
+        );
+    }
+
+/* Dividers / 📂 Divisórias */
+    .divider {
+        /* Alinhamento lado a lado */
+        display: flex;              
+        /* Centraliza verticalmente */
+        align-items: center;        
+        /* Espaçamento entre conteúdo e linhas */
+        gap: 12px;                  
+        margin: 18px 0;             
+    }
+    /* 📏 Linhas decorativas nas laterais */
+    .divider::before,
+    .divider::after {
+        content: "";           
+        /* Espaço lateral ocupado */     
+        flex: 1;       
+        /* Altura da linha */             
+        height: 1px;    
+        /* Gradiente linear com cor central */            
+        background: linear-gradient(
+            90deg,                  
+            transparent,
+            var(--divider-muted)
+        );
+        /* Bordas arredondadas */
+        border-radius: 2px;         
+    }
+    /* ✍️ Texto central da divisória */
+    .divider span {
+        color: var(--divider-muted); /* Cor neutra do texto */
+        font-size: 1.05em;           /* Leve aumento de tamanho */
+        display: inline-block;       /* Respeita espaçamentos */
+    }
+    /* 📌 Título decorativo no topo */
+    .divider-header {
+        text-align: center;          /* Centraliza o texto */
+        margin: 6px 0 14px;          /* Espaçamento acima e abaixo */
+    }
+    /* ✨ Linha especial do header com símbolos */
+    .divider-header::before {
+        content: "⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅ ✦ ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅";
+        color: var(--divider-accent); /* Cor de destaque */
+        font-size: 0.98em;            /* Levemente menor */
+        display: block;               /* Ocupa linha inteira */
+    }
+    /* 📌 Rodapé decorativo */
+    .divider-footer {
+        text-align: center;
+        margin-top: 18px;
+    }
+    /* ✨ Linha especial do footer */
+    .divider-footer::before {
+        content: "•✦•······················•✦•";
+        color: var(--divider-accent);
+        font-size: 1.05em;
+        display: block;
+    }
+    /* ⚠️ Redefinição do .divider (segundo bloco) 
+    — Isso substitui propriedades do bloco anterior */
+    .divider {
+        text-align: center;           /* Centraliza conteúdo */
+        margin: 20px 0;               /* Ajusta espaçamento vertical */
+        color: var(--divider-primary); /* Cor principal */
+        font-size: 1.5em;              /* Aumenta tamanho */
+        letter-spacing: 2px;           /* Espaçamento entre letras */
+    }
+    /* 🎯 Redefinição das linhas laterais 
+    — Aqui já não são mais linhas, mas ícones */
+    .divider::before,
+    .divider::after {
+        content: "✦ ✧ ✦";              /* Símbolos decorativos */
+        margin: 0 10px;                 /* Espaço entre ícone e texto */
+        color: var(--divider-icon);     /* Cor dos ícones */
+    }
+    /* Divisores 🚧 Alternativos */
+    .divider-alt {
+        text-align: center;
+        margin: 18px 0;
+        color: var(--divider-alt-color);
+        font-size: var(--divider-alt-size);
+        line-height: 1.4;
+    }
+    /* 🔖 Cada alternativa recebe um ::before com seu desenho */
+    /* 1 — Estrelas ✨ */
+    .divider-alt1::before {
+        content: "✦ . ⁺  . ✦ ⁺ . ✦ . ⁺  . ✦ . ⁺  . ✦ . ⁺  . ✦ . ";
+        display: block;
+    }
+    /* 2 — Ornamento com arabescos e símbolos 🎀 delicados */
+    .divider-alt2::before {
+        content: "︶⊹︶︶୨୧︶︶⊹︶︶⊹︶︶୨୧︶︶⊹︶︶⊹︶︶୨୧︶︶⊹︶︶⊹";
+        display: block;
+    }
+    /* 3 — Estilo místico 📿 com caveira */
+    .divider-alt3::before {
+        content: "⋆⁺₊⋆ ━━━━⊱༒︎ • ༒︎⊰━━━━ ⋆⁺₊⋆";
+        display: block;
+    }
+    /* 4 — Traço 🩰 delicado com estrelas pequenas */
+    .divider-alt4::before {
+        content: "꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦";
+        display: block;
+    }
+    /* 5 — Moldura central ♈ com símbolo */
+    .divider-alt5::before {
+        content: "༺𓆩༒︎𓆪༻";
+        display: block;
+    }
+    /* 6 — Linha com ar de 📜 pergaminho */
+    .divider-alt6::before {
+        content: "ྀི︶˚̣̣̣ ྀི◟ ͜ ◞˚̣̣̣ ྀི︶𓏴︶˚̣̣̣ ྀི◟ ͜ ◞˚̣̣̣ ྀི︶";
+        display: block;
+    }
+    /* 7 — Destaque com 💐 buquê */
+    .divider-alt7::before {
+        content: "❛ ━━━━━━･❪ 🎕 ❫ ･━━━━━━ ❜";
+        display: block;
+    }
+    /* 8 — Cruz e símbolos 🔱 religiosos */
+    .divider-alt8::before {
+        content: "˚̣̣̣ ꒷︶†︶꒷˚̣̣̣︶ ͡𑁬♱໒ ͡ ︶˚̣̣̣꒷︶†︶꒷ ˚̣̣̣";
+        display: block;
+    }
+    /* 9 — Linha de estrelas 🌠 repetitivas */
+    .divider-alt9::before {
+        content: "·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙";
+        display: block;
+    }
+
+/* Box-info / Caixa de Informação */
+.box-info {
+    position: relative;
+    border: 1.8px solid rgba(0, 119, 204, 0.10);
+    background: rgba(234, 244, 255, 0.95);
+    padding: 14px;
+    border-radius: 12px;
+    margin: 16px 0;
+    font-family: 'Comic Neue', cursive;
+    transition: transform .28s ease, box-shadow .28s ease;
+    box-shadow: 0 8px 20px rgba(9, 20, 40, 0.04);
+}
+/* */
+.box-info::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: -8px;
+    border-radius: calc(12px + 8px);
+    background: linear-gradient(90deg, rgba(77, 224, 255, 0.06), rgba(154, 123, 255, 0.04));
+    filter: blur(10px);
+    z-index: -1;
+    animation: neon-border 8s ease-in-out infinite;
+}
+/* Hover */
+.box-info:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 44px rgba(9, 20, 40, 0.08);
+}
+
+/* */
+.badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.badge {
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform .16s ease, box-shadow .16s ease;
+    white-space: nowrap;
+}
+
+.badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Badges coloridas pastel */
+.badge.vermelho-magenta-pastel {
+    background: linear-gradient(180deg, #ffd6e9, #ffb3d1);
+    color: #8a003b;
+    border-color: rgba(138, 0, 59, 0.15);
+}
+
+.badge.vermelho-pastel {
+    background: linear-gradient(180deg, #ffd6d6, #ffb3b3);
+    color: #7f1a1a;
+    border-color: rgba(127, 26, 26, 0.15);
+}
+
+.badge.laranja-pastel {
+    background: linear-gradient(180deg, #ffe6cc, #ffd1a3);
+    color: #7f3d00;
+    border-color: rgba(127, 61, 0, 0.15);
+}
+
+.badge.amarelo-pastel {
+    background: linear-gradient(180deg, #fff9cc, #fff4a3);
+    color: #7f6b00;
+    border-color: rgba(127, 107, 0, 0.15);
+}
+
+.badge.amarelo-esverdeado-pastel {
+    background: linear-gradient(180deg, #f5ffcc, #ecffa3);
+    color: #637f00;
+    border-color: rgba(99, 127, 0, 0.15);
+}
+
+.badge.verde-limao-pastel {
+    background: linear-gradient(180deg, #e0ffcc, #c8ffa3);
+    color: #4d7f00;
+    border-color: rgba(77, 127, 0, 0.15);
+}
+
+.badge.verde-floresta-pastel {
+    background: linear-gradient(180deg, #d6ffdd, #b3ffc4);
+    color: #0f6630;
+    border-color: rgba(15, 102, 48, 0.15);
+}
+
+.badge.turquesa-pastel {
+    background: linear-gradient(180deg, #ccfff7, #a3ffef);
+    color: #007f73;
+    border-color: rgba(0, 127, 115, 0.15);
+}
+
+.badge.ciano-pastel {
+    background: linear-gradient(180deg, #ccf9ff, #a3f0ff);
+    color: #005e7f;
+    border-color: rgba(0, 94, 127, 0.15);
+}
+
+.badge.azul-royal-pastel {
+    background: linear-gradient(180deg, #d6e4ff, #b3ccff);
+    color: #003d7f;
+    border-color: rgba(0, 61, 127, 0.15);
+}
+
+.badge.azul-klein-pastel {
+    background: linear-gradient(180deg, #d6dbff, #b3baff);
+    color: #1a1f7f;
+    border-color: rgba(26, 31, 127, 0.15);
+}
+
+.badge.violeta-pastel {
+    background: linear-gradient(180deg, #e6ccff, #d1a3ff);
+    color: #4d007f;
+    border-color: rgba(77, 0, 127, 0.15);
+}
+
+.badge.roxo-pastel {
+    background: linear-gradient(180deg, #ebccff, #dba3ff);
+    color: #5e007f;
+    border-color: rgba(94, 0, 127, 0.15);
+}
+
+.badge.lilas-pastel {
+    background: linear-gradient(180deg, #f1ccff, #e3a3ff);
+    color: #66007f;
+    border-color: rgba(102, 0, 127, 0.15);
+}
+
+.badge.vinho-pastel {
+    background: linear-gradient(180deg, #ffd6e0, #ffb3c4);
+    color: #7f0033;
+    border-color: rgba(127, 0, 51, 0.15);
+}
+
+.badge.rosa-pastel {
+    background: linear-gradient(180deg, #ffe0eb, #ffc2d6);
+    color: #7f1a4d;
+    border-color: rgba(127, 26, 77, 0.15);
+}
+
+.badge.pessego-pastel {
+    background: linear-gradient(180deg, #ffe6d6, #ffd1b3);
+    color: #7f3d1a;
+    border-color: rgba(127, 61, 26, 0.15);
+}
+
+.badge.bege-pastel {
+    background: linear-gradient(180deg, #fff3e0, #ffe6cc);
+    color: #7f5a1a;
+    border-color: rgba(127, 90, 26, 0.15);
+}
+
+.badge.marrom-caqui-pastel {
+    background: linear-gradient(180deg, #f0e6d6, #e0d1b3);
+    color: #5a3d1a;
+    border-color: rgba(90, 61, 26, 0.15);
+}
+
+.badge.cinza-pastel {
+    background: linear-gradient(180deg, #f2f2f2, #e0e0e0);
+    color: #4d4d4d;
+    border-color: rgba(77, 77, 77, 0.15);
+}
+
+.badge.branco {
+    background: linear-gradient(180deg, #ffffff, #f7f7f7);
+    color: #333333;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Hover e animação suave */
+.badge.vermelho-magenta-pastel:hover,
+.badge.vermelho-pastel:hover,
+.badge.laranja-pastel:hover,
+.badge.amarelo-pastel:hover,
+.badge.amarelo-esverdeado-pastel:hover,
+.badge.verde-limao-pastel:hover,
+.badge.verde-floresta-pastel:hover,
+.badge.turquesa-pastel:hover,
+.badge.ciano-pastel:hover,
+.badge.azul-royal-pastel:hover,
+.badge.azul-klein-pastel:hover,
+.badge.violeta-pastel:hover,
+.badge.roxo-pastel:hover,
+.badge.lilas-pastel:hover,
+.badge.vinho-pastel:hover,
+.badge.rosa-pastel:hover,
+.badge.pessego-pastel:hover,
+.badge.bege-pastel:hover,
+.badge.marrom-caqui-pastel:hover,
+.badge.cinza-pastel:hover,
+.badge.branco:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Text / Lists */
+.container p,
+.container ul,
+.container .caption {
+    max-width: 100%;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 1em;
+}
+
+p {
+    text-indent: 1.5em;
+    margin: 0.6em 0;
+}
+
+.box-info p,
+.caption {
+    text-indent: 0;
+    margin: 0.35em 0;
+}
+
+/* Lista personalizada */
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 6px 0;
+    font-size: 1em;
+}
+
+/* Nível 1 */
+ul.topic>li {
+    margin: .46em 0;
+}
+
+ul.topic li::before {
+    content: "✦ ";
+    color: #0066aa;
+    margin-right: 6px;
+}
+
+/* Nível 1 filho */
+ul.subtopic>li {
+    margin: .42em 0;
+}
+
+ul.subtopic li::before {
+    content: "✧ ";
+    color: #004a99;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+/* Tópico independente inferior */
+ul.independente>li {
+    margin: .42em 0;
+}
+
+ul.independente li::before {
+    content: "✫ ";
+    color: #005577;
+    margin-right: 6px;
+}
+
+/* Subtópico */
+ul.subtopico>li {
+    margin: .4em 0;
+}
+
+ul.subtopico li::before {
+    content: "✣ ";
+    color: #007799;
+    margin-right: 6px;
+}
+
+/* Item do subtópico */
+ul.item-subtopico>li {
+    margin: .38em 0;
+}
+
+ul.item-subtopico li::before {
+    content: "➻ ";
+    color: #005599;
+    margin-right: 6px;
+}
+
+/* Microtópico pai */
+ul.micro>li {
+    margin: .36em 0;
+}
+
+ul.micro li::before {
+    content: "• ";
+    color: #333;
+    margin-right: 8px;
+    margin-left: 12px;
+    font-weight: 700;
+}
+
+/* Microtópico filho */
+ul.micro-filho>li {
+    margin: .34em 0;
+}
+
+ul.micro-filho li::before {
+    content: "◦ ";
+    color: #555;
+    margin-right: 8px;
+    margin-left: 14px;
+    font-weight: 700;
+}
+
+
+/* Components (zebra) */
+.component {
+    position: relative;
+    border-left: 3px solid rgba(0, 119, 204, 0.12);
+    padding: 14px;
+    margin: 14px 0;
+    border-radius: 10px;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.component:nth-of-type(odd) {
+    background: var(--zebra1);
+}
+
+.component:nth-of-type(even) {
+    background: var(--zebra2);
+}
+
+.component:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 48px rgba(9, 20, 40, 0.08), 0 0 30px rgba(154, 123, 255, 0.05);
+}
+
+.component h3 {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--accent-dark);
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.4em;
+    /* alguns pixels maior */
+    position: relative;
+    text-shadow:
+        1px 1px 0px rgba(255, 255, 255, 0.8),
+        -1px -1px 0px rgba(255, 255, 255, 0.8),
+        2px 1px 0px rgba(255, 255, 255, 0.5),
+        -2px -1px 0px rgba(255, 255, 255, 0.5),
+        3px 2px 0px rgba(255, 255, 255, 0.3),
+        -3px -2px 0px rgba(255, 255, 255, 0.3);
+    /* estrelas mínimas */
+}
+
+/* Opcional: estrelas extras piscando ao redor */
+.component h3::before,
+.component h3::after {
+    content: "✦";
+    color: var(--accent-mid);
+    font-weight: 700;
+    font-size: 0.5em;
+    animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+}
+
+
+/* Code blocks */
+pre.code {
+    background: rgba(15, 23, 32, 0.06);
+    padding: 12px;
+    border-radius: 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+    overflow: auto;
+    font-size: .95em;
+    margin: 10px 0;
+    border: 1px dashed rgba(0, 0, 0, 0.05);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Images */
+.image-center {
+    text-align: center;
+    margin: 12px 0;
+    padding: 6px 0;
+}
+
+.image-center img {
+    max-width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 119, 204, 0.12);
+    transition: transform .28s ease, filter .28s ease, box-shadow .28s ease;
+    box-shadow: 0 8px 26px rgba(9, 20, 40, 0.06);
+    animation: neon-border 8s ease-in-out infinite;
+}
+
+.image-center img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 22px 56px rgba(9, 20, 40, 0.14), 0 0 36px rgba(77, 224, 255, 0.16);
+    filter: saturate(1.03) drop-shadow(0 0 18px rgba(77, 224, 255, 0.10));
+}
+
+/* Caption */
+.caption {
+    font-family: 'Belanosima', sans-serif;
+    color: var(--accent-dark);
+    font-size: .95em;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Utilities */
+.kw {
+    font-weight: 700;
+    text-decoration: underline;
+    color: var(--accent-dark);
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 1em;
+}
+
+/* Responsive */
+@media (max-width:600px) {
+    h1 {
+        gap: 8px;
+        font-size: 1.05rem;
+    }
+
+    .highlight {
+        font-size: .95rem;
+        padding: 6px 8px;
+    }
+
+    .container {
+        padding: 14px;
+    }
+
+    .component {
+        padding: 12px;
+    }
+
+    pre.code {
+        font-size: .92em;
+    }
+}
+
+/* Focus accessibility */
+a:focus,
+button:focus,
+input:focus,
+.component:focus-within {
+    outline: 3px solid rgba(77, 224, 255, 0.18);
+    outline-offset: 3px;
+}
+
+/* Redução de Movimento 👐 do UX */
+/* @media (prefers-reduced-motion: reduce) 
+  * { animation-duration: 0.001ms !important;   
+    transition-duration: 0.001ms !important; }  
+  .container::after, 
+  .image-center img, 
+  .box-info::before, 
+  .highlight { 
+    animation: none !important; }
+} */
