@@ -8,18 +8,39 @@
         --pad: 20px;
         /* Largura máxima de containers */
         --maxw: 1000px;
-        /* Cor neutra para divisória (linhas suaves) */
-        --divider-muted: var(--muted);     
-        /* Cor de destaque (símbolos decorativos) */     
-        --divider-accent: var(--accent-mid);    
+
+        /* Cores default - fallback */
+        --accent-dark: #004488;
+        --accent-mid: #3399ff;
+        --accent-light: #99caff;
+
+        /* Paleta para background */
+        --color-bg-light: #ffffff;
+        --color-bg-muted: #f9f9f9;
+        --color-bg-dark: #1b1b1d;
+
+        /* Paleta para texto */
+        --color-text: #222;
+        --color-text-muted: #666;
+        --color-text-accent: #0077cc;
+
+        /* Zebra default */
+        --zebra1: #f9f9f9;
+        --zebra2: #ffffff; 
+
         /* Cor principal do texto/divisor */
-        --divider-primary: var(--div-pri, #0077cc);      
+        --divider-primary: var(--color-text-accent, #0077cc);   
+        /* Cor neutra para divisória (linhas suaves) */
+        --divider-muted: var(--color-text-muted, #ccc);     
+        /* Cor de destaque (símbolos decorativos) */     
+        --divider-accent: var(--accent-mid, #3399ff);    
         /* Cor dos ícones laterais */       
-        --divider-icon: var(--div-ico, #99caff);      
+        --divider-icon: var(--accent-light, #99caff);      
         /* Cor principal dos divisores alternativos */
         --divider-alt-color: var(--accent-mid); 
         /* Tamanho base da fonte dos símbolos */
-        --divider-alt-size: 1em;                
+        --divider-alt-size: 1em;     
+
         /* Cores principais da box-info */
         --box-info-border: rgba(0, 119, 204, 0.10);  /* Borda suave */
         --box-info-bg: rgba(234, 244, 255, 0.95);    /* Fundo translúcido */
@@ -28,11 +49,45 @@
         /* Gradiente de brilho */
         --box-info-glow1: rgba(77, 224, 255, 0.06);
         --box-info-glow2: rgba(154, 123, 255, 0.04);
-        /* Configurações gerais */
+        /* Configurações gerais de box-info */
         --box-info-radius: 12px;  /* Raio do arredondamento */
         --box-info-padding: 14px; /* Espaçamento interno */
-        --box-info-font: 'Comic Relief', cursive;          
-    }
+        --box-info-font: 'Comic Relief', cursive;  /* Fonte */
+
+        /* Cores semânticas para listas variadas */
+        --color-topic: var(--accent-topic, #0066aa);
+        --color-subtopic: var(--accent-subtopic, #004a99);
+        --color-independente: var(--accent-independente, #005577);
+        --color-subtopico: var(--accent-subtopico, #007799);
+        --color-item-subtopico: var(--accent-item-subtopico, #005599);
+        --color-micro: var(--accent-micro, #333);
+        --color-micro-filho: var(--accent-micro-filho, #555); 
+        
+        /* Paleta do bloco de código */
+        --code-bg: rgba(15, 23, 32, 0.06);             /* Fundo do <pre> */
+        --code-fg: var(--color-text, #222);            /* Cor do texto padrão */
+        --code-border: rgba(0, 0, 0, 0.05);            /* Cor da borda tracejada */
+        --code-shadow: rgba(0, 0, 0, 0.06);            /* Sombra leve, se usar */
+        --code-radius: 10px;                           /* Raio do <pre> */
+        --code-pad: 12px;                              /* Padding do <pre> */
+        --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+
+        /* Paleta de tokens (para highlight opcional) */
+        --code-token-keyword: var(--accent-dark, #004488);
+        --code-token-string: #b35c00;                  /* Laranja queimado legível */
+        --code-token-number: #0f6;                     /* Verde vivo */
+        --code-token-function: #6b5d00;                /* Amarelo escuro */
+        --code-token-comment: #5f6a6a;                 /* Cinza/verde discreto */
+        --code-token-tag: var(--accent-mid, #3399ff);  /* Azul médio */
+        --code-token-attr: var(--accent-light, #99caff);
+        --code-token-operator: #7a3ac0;                /* Roxo */
+        --code-token-punctuation: #555;                /* Pontuação */
+        --code-token-selection-bg: rgba(0, 119, 204, .18); /* Seleção */
+        --code-token-selection-fg: inherit;
+
+        /* Fallbacks de segurança*/
+        --muted: #ccc;
+        }
 
 /* Base / Texto 📝 Customizado */
     .custom-text {
@@ -108,7 +163,7 @@
                                         );
     }
 
-/* Tipos de ➿ sublinhado */
+/* Tipos de ➰🎼 sublinhado */
     /* ➖ Reto */
     .reto { text-decoration-line: underline; text-decoration-style: solid; }  
     /* ➿ Ondulado */
@@ -120,7 +175,7 @@
     /* 🥢 Duplo  */
     .duplo { text-decoration-line: underline; text-decoration-style: double; }
 
-/* 🎨 Kit de cores para textos - Legíveis em fundo claro */
+/*  Kit de cores 🌈 para textos - Legíveis em fundo claro */
 
     /* 🔴 Vermelhos */
     .custom-text-vermelho { /* ❤️ Vermelho clássico */
@@ -673,362 +728,433 @@
     }
 
 /* Badges / 🔖 Etiquetas */
-.badges {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-}
-.badge {
-    padding: 6px 10px;
-    border-radius: 10px;
-    font-size: 1em;
-    font-weight: 700;
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    transition: transform .16s ease, box-shadow .16s ease;
-    white-space: nowrap;
-}
-.badge:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-}
-/* Badges coloridas pastel */
-.badge.vermelho-magenta-pastel {
-    background: linear-gradient(180deg, #ffd6e9, #ffb3d1);
-    color: #8a003b;
-    border-color: rgba(138, 0, 59, 0.15);
-}
-.badge.vermelho-pastel {
-    background: linear-gradient(180deg, #ffd6d6, #ffb3b3);
-    color: #7f1a1a;
-    border-color: rgba(127, 26, 26, 0.15);
-}
-.badge.laranja-pastel {
-    background: linear-gradient(180deg, #ffe6cc, #ffd1a3);
-    color: #7f3d00;
-    border-color: rgba(127, 61, 0, 0.15);
-}
-.badge.amarelo-pastel {
-    background: linear-gradient(180deg, #fff9cc, #fff4a3);
-    color: #7f6b00;
-    border-color: rgba(127, 107, 0, 0.15);
-}
-.badge.amarelo-esverdeado-pastel {
-    background: linear-gradient(180deg, #f5ffcc, #ecffa3);
-    color: #637f00;
-    border-color: rgba(99, 127, 0, 0.15);
-}
-.badge.verde-limao-pastel {
-    background: linear-gradient(180deg, #e0ffcc, #c8ffa3);
-    color: #4d7f00;
-    border-color: rgba(77, 127, 0, 0.15);
-}
-.badge.verde-floresta-pastel {
-    background: linear-gradient(180deg, #d6ffdd, #b3ffc4);
-    color: #0f6630;
-    border-color: rgba(15, 102, 48, 0.15);
-}
-.badge.turquesa-pastel {
-    background: linear-gradient(180deg, #ccfff7, #a3ffef);
-    color: #007f73;
-    border-color: rgba(0, 127, 115, 0.15);
-}
-.badge.ciano-pastel {
-    background: linear-gradient(180deg, #ccf9ff, #a3f0ff);
-    color: #005e7f;
-    border-color: rgba(0, 94, 127, 0.15);
-}
-.badge.azul-royal-pastel {
-    background: linear-gradient(180deg, #d6e4ff, #b3ccff);
-    color: #003d7f;
-    border-color: rgba(0, 61, 127, 0.15);
-}
-.badge.azul-klein-pastel {
-    background: linear-gradient(180deg, #d6dbff, #b3baff);
-    color: #1a1f7f;
-    border-color: rgba(26, 31, 127, 0.15);
-}
-.badge.violeta-pastel {
-    background: linear-gradient(180deg, #e6ccff, #d1a3ff);
-    color: #4d007f;
-    border-color: rgba(77, 0, 127, 0.15);
-}
-.badge.roxo-pastel {
-    background: linear-gradient(180deg, #ebccff, #dba3ff);
-    color: #5e007f;
-    border-color: rgba(94, 0, 127, 0.15);
-}
-.badge.lilas-pastel {
-    background: linear-gradient(180deg, #f1ccff, #e3a3ff);
-    color: #66007f;
-    border-color: rgba(102, 0, 127, 0.15);
-}
-.badge.vinho-pastel {
-    background: linear-gradient(180deg, #ffd6e0, #ffb3c4);
-    color: #7f0033;
-    border-color: rgba(127, 0, 51, 0.15);
-}
-.badge.rosa-pastel {
-    background: linear-gradient(180deg, #ffe0eb, #ffc2d6);
-    color: #7f1a4d;
-    border-color: rgba(127, 26, 77, 0.15);
-}
-.badge.pessego-pastel {
-    background: linear-gradient(180deg, #ffe6d6, #ffd1b3);
-    color: #7f3d1a;
-    border-color: rgba(127, 61, 26, 0.15);
-}
-.badge.bege-pastel {
-    background: linear-gradient(180deg, #fff3e0, #ffe6cc);
-    color: #7f5a1a;
-    border-color: rgba(127, 90, 26, 0.15);
-}
-.badge.marrom-caqui-pastel {
-    background: linear-gradient(180deg, #f0e6d6, #e0d1b3);
-    color: #5a3d1a;
-    border-color: rgba(90, 61, 26, 0.15);
-}
-.badge.cinza-pastel {
-    background: linear-gradient(180deg, #f2f2f2, #e0e0e0);
-    color: #4d4d4d;
-    border-color: rgba(77, 77, 77, 0.15);
-}
-.badge.branco {
-    background: linear-gradient(180deg, #ffffff, #f7f7f7);
-    color: #333333;
-    border-color: rgba(0, 0, 0, 0.08);
-}
-/* Hover e animação suave */
-.badge.vermelho-magenta-pastel:hover,
-.badge.vermelho-pastel:hover,
-.badge.laranja-pastel:hover,
-.badge.amarelo-pastel:hover,
-.badge.amarelo-esverdeado-pastel:hover,
-.badge.verde-limao-pastel:hover,
-.badge.verde-floresta-pastel:hover,
-.badge.turquesa-pastel:hover,
-.badge.ciano-pastel:hover,
-.badge.azul-royal-pastel:hover,
-.badge.azul-klein-pastel:hover,
-.badge.violeta-pastel:hover,
-.badge.roxo-pastel:hover,
-.badge.lilas-pastel:hover,
-.badge.vinho-pastel:hover,
-.badge.rosa-pastel:hover,
-.badge.pessego-pastel:hover,
-.badge.bege-pastel:hover,
-.badge.marrom-caqui-pastel:hover,
-.badge.cinza-pastel:hover,
-.badge.branco:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
+    .badges {
+        /* Espaçamento flexível lado a lado*/
+        display: flex;
+        gap: 8px;
+        /* Quebra de linha*/
+        flex-wrap: wrap;
+        /* Margem inferior */
+        margin-bottom: 10px;
+    }
+    /* Estilo 🔩 Base de Badges*/ 
+    .badge {
+        /* Espaço Interno*/
+        padding: 6px 10px;
+        /* Arrendondamento */
+        border-radius: 10px;
+        /* Tamanho da fonte - quadratim */
+        font-size: 1em;
+        /* Negrito */
+        font-weight: 700;
+        /* Borda */
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        /* Transform muda a forma, posição, rotação ou escala*/
+        transition: transform .16s ease, box-shadow .16s ease;
+        /* Evita quebra de linha */
+        white-space: nowrap;
+    }
+    /* Animação 🐤 hover*/
+    .badge:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+    /* Vemelho 🏩 magenta pastel */
+    .badge.vermelho-magenta-pastel {
+        background: linear-gradient(180deg, #ffd6e9, #ffb3d1);
+        color: #8a003b;
+        border-color: rgba(138, 0, 59, 0.15);
+    }
+    /* Vermelho 💟 pastel */
+    .badge.vermelho-pastel {
+        background: linear-gradient(180deg, #ffd6d6, #ffb3b3);
+        color: #7f1a1a;
+        border-color: rgba(127, 26, 26, 0.15);
+    }
+    /* Laranja 🛕 pastel */
+    .badge.laranja-pastel {
+        background: linear-gradient(180deg, #ffe6cc, #ffd1a3);
+        color: #7f3d00;
+        border-color: rgba(127, 61, 0, 0.15);
+    }
+    /* Amarelo 🍶 pastel */
+    .badge.amarelo-pastel {
+        background: linear-gradient(180deg, #fff9cc, #fff4a3);
+        color: #7f6b00;
+        border-color: rgba(127, 107, 0, 0.15);
+    }
+    /* Amarelo 🍈 esverdeado pastel */
+    .badge.amarelo-esverdeado-pastel {
+        background: linear-gradient(180deg, #f5ffcc, #ecffa3);
+        color: #637f00;
+        border-color: rgba(99, 127, 0, 0.15);
+    }
+    /* Verde 🍏 limão pastel */
+    .badge.verde-limao-pastel {
+        background: linear-gradient(180deg, #e0ffcc, #c8ffa3);
+        color: #4d7f00;
+        border-color: rgba(77, 127, 0, 0.15);
+    }
+    /* Verde 🌱 floresta pastel */
+    .badge.verde-floresta-pastel {
+        background: linear-gradient(180deg, #d6ffdd, #b3ffc4);
+        color: #0f6630;
+        border-color: rgba(15, 102, 48, 0.15);
+    }
+    /* Turquesa 🧃 pastel */
+    .badge.turquesa-pastel {
+        background: linear-gradient(180deg, #ccfff7, #a3ffef);
+        color: #007f73;
+        border-color: rgba(0, 127, 115, 0.15);
+    }
+    /* Ciano 🧼 pastel */
+    .badge.ciano-pastel {
+        background: linear-gradient(180deg, #ccf9ff, #a3f0ff);
+        color: #005e7f;
+        border-color: rgba(0, 94, 127, 0.15);
+    }
+    /* Azul 🧣 royal pastel */
+    .badge.azul-royal-pastel {
+        background: linear-gradient(180deg, #d6e4ff, #b3ccff);
+        color: #003d7f;
+        border-color: rgba(0, 61, 127, 0.15);
+    }
+    /* Azul 🧳 klein pastel */
+    .badge.azul-klein-pastel {
+        background: linear-gradient(180deg, #d6dbff, #b3baff);
+        color: #1a1f7f;
+        border-color: rgba(26, 31, 127, 0.15);
+    }
+    /* Violeta 🈳 pastel */
+    .badge.violeta-pastel {
+        background: linear-gradient(180deg, #e6ccff, #d1a3ff);
+        color: #4d007f;
+        border-color: rgba(77, 0, 127, 0.15);
+    }
+    /* Roxo 🔮 pastel*/
+    .badge.roxo-pastel {
+        background: linear-gradient(180deg, #ebccff, #dba3ff);
+        color: #5e007f;
+        border-color: rgba(94, 0, 127, 0.15);
+    }
+    /* Lilás 🪀 pastel */
+    .badge.lilas-pastel {
+        background: linear-gradient(180deg, #f1ccff, #e3a3ff);
+        color: #66007f;
+        border-color: rgba(102, 0, 127, 0.15);
+    }
+    /* Vinho 🍷 pastel*/
+    .badge.vinho-pastel {
+        background: linear-gradient(180deg, #ffd6e0, #ffb3c4);
+        color: #7f0033;
+        border-color: rgba(127, 0, 51, 0.15);
+    }
+    /* Rosa 🌸 pastel */
+    .badge.rosa-pastel {
+        background: linear-gradient(180deg, #ffe0eb, #ffc2d6);
+        color: #7f1a4d;
+        border-color: rgba(127, 26, 77, 0.15);
+    }
+    /* Pêssego 🍑 pastel */
+    .badge.pessego-pastel {
+        background: linear-gradient(180deg, #ffe6d6, #ffd1b3);
+        color: #7f3d1a;
+        border-color: rgba(127, 61, 26, 0.15);
+    }
+    /* Bege 🥠 pastel */
+    .badge.bege-pastel {
+        background: linear-gradient(180deg, #fff3e0, #ffe6cc);
+        color: #7f5a1a;
+        border-color: rgba(127, 90, 26, 0.15);
+    }
+    /* Marrom 🧤 caqui pastel */
+    .badge.marrom-caqui-pastel {
+        background: linear-gradient(180deg, #f0e6d6, #e0d1b3);
+        color: #5a3d1a;
+        border-color: rgba(90, 61, 26, 0.15);
+    }
+    /* Cinza 📻 pastel */
+    .badge.cinza-pastel {
+        background: linear-gradient(180deg, #f2f2f2, #e0e0e0);
+        color: #4d4d4d;
+        border-color: rgba(77, 77, 77, 0.15);
+    }
+    /* Branco 🦢 */
+    .badge.branco {
+        background: linear-gradient(180deg, #ffffff, #f7f7f7);
+        color: #333333;
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+    /* Hover e animação 🎈 suave para todas as cores */
+    /* Pega qualquer badge 📚 que tenha 'pastel' no nome da classe */
+    .badge[class*="pastel"]:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+    .badge.branco:hover {
+        /* Branco recebe sombra maior */
+        transform: translateY(-3px) scale(1.05); 
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+/* Text / 📑 Lists */
+    /* Parágrafo 📰 */
+    .container p,
+    /* Unordered 📮 List = Lista não Ordenada (diferente de ol) */
+    .container ul,
+    /* Legenda da 📸 Imagem */
+    .container .caption {
+        max-width: 100%;
+        margin-left: 6px;
+        margin-right: 6px;
+        font-size: 1em;
+    }
+    /* Definição geral 🔗 de todos os parágrafo*/
+    p {
+        /* Identação de 🔜 parágrafo (primeira linha)*/
+        text-indent: 1.5em;
+        /* Margem 🚏 que separa os parágrafos*/
+        margin: 0.6em 0;
+    }
+    /* Parágrafo (do box-info 🧧) e legenda não possuem index e margem diferente*/
+    .box-info p,
+    .caption {
+        text-indent: 0;
+        margin: 0.35em 0; /* Margem vertical menor*/
+    }
+
+    /* Lista 📥 personalizada */
+    /* Configuração geral para todas as 🩺 listas*/
+    ul {
+        /* Remove as 'bolinhas' 🎱 padrão */
+        list-style: none; 
+        /* Remove espaço 🌀 das 'bolinhas' */
+        padding-left: 0;
+        /* Margem nas verticais 🚩 para separar os tópicos*/
+        margin: 6px 0;
+        font-size: 1em;
+    }
+    /* ✦ --- Nível 1 (ul.topic) */
+    /* Seletor 🚛 somente de itens de lista */
+    ul.topic>li {
+        margin: .46em 0; /* Margem vertical */
+    }
+    /* Antes 🏓 do texto do tópico */
+    ul.topic li::before {
+        content: "✦ ";
+        color: var(--color-topic);
+        margin-right: 6px;
+    }
+    /* ✧ --- Nível 1 filho (ul.subtopic) */
+    ul.subtopic>li {
+        margin: .42em 0;
+    }
+    ul.subtopic li::before {
+        content: "✧ ";
+        color: var(--color-subtopic);
+        margin-right: 6px;
+        margin-left: 6px;  /* Espaço para esquerda para subtópico*/
+    }
+    /* ✫ --- Tópico independente inferior (ul.indepente) */
+    ul.independente>li {
+        margin: .42em 0;
+    }
+    ul.independente li::before {
+        content: "✫ ";
+        color: var(--color-independente);
+        margin-right: 6px;
+    }
+    /* ✣ --- Subtópico */
+    ul.subtopico>li {
+        margin: .4em 0;
+    }
+    ul.subtopico li::before {
+        content: "✣ ";
+        color: var(--color-subtopico);
+        margin-right: 6px;
+    }
+    /* ➻ --- Item do subtópico */
+    ul.item-subtopico>li {
+        margin: .38em 0;
+    }
+    ul.item-subtopico li::before {
+        content: "➻ ";
+        color: var(--color-item-subtopico);
+        margin-right: 6px;
+    }
+    /* • --- Microtópico pai */
+    ul.micro>li {
+        margin: .36em 0;
+    }
+    ul.micro li::before {
+        content: "• ";
+        color: var(--color-micro);
+        margin-right: 8px;
+        margin-left: 12px;
+        font-weight: 700; /* Negrito para destaque*/
+    }
+    /* ◦ --- Microtópico filho */
+    ul.micro-filho>li {
+        margin: .34em 0;
+    }
+    ul.micro-filho li::before {
+        content: "◦ ";
+        color: var(--color-micro-filho);
+        margin-right: 8px;
+        margin-left: 14px;
+        font-weight: 700;
+    }
 
 
-/* Text / Lists */
-.container p,
-.container ul,
-.container .caption {
-    max-width: 100%;
-    margin-left: 6px;
-    margin-right: 6px;
-    font-size: 1em;
-}
-
-p {
-    text-indent: 1.5em;
-    margin: 0.6em 0;
-}
-
-.box-info p,
-.caption {
-    text-indent: 0;
-    margin: 0.35em 0;
-}
-
-/* Lista personalizada */
-ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 6px 0;
-    font-size: 1em;
-}
-
-/* Nível 1 */
-ul.topic>li {
-    margin: .46em 0;
-}
-
-ul.topic li::before {
-    content: "✦ ";
-    color: #0066aa;
-    margin-right: 6px;
-}
-
-/* Nível 1 filho */
-ul.subtopic>li {
-    margin: .42em 0;
-}
-
-ul.subtopic li::before {
-    content: "✧ ";
-    color: #004a99;
-    margin-right: 6px;
-    margin-left: 6px;
-}
-
-/* Tópico independente inferior */
-ul.independente>li {
-    margin: .42em 0;
-}
-
-ul.independente li::before {
-    content: "✫ ";
-    color: #005577;
-    margin-right: 6px;
-}
-
-/* Subtópico */
-ul.subtopico>li {
-    margin: .4em 0;
-}
-
-ul.subtopico li::before {
-    content: "✣ ";
-    color: #007799;
-    margin-right: 6px;
-}
-
-/* Item do subtópico */
-ul.item-subtopico>li {
-    margin: .38em 0;
-}
-
-ul.item-subtopico li::before {
-    content: "➻ ";
-    color: #005599;
-    margin-right: 6px;
-}
-
-/* Microtópico pai */
-ul.micro>li {
-    margin: .36em 0;
-}
-
-ul.micro li::before {
-    content: "• ";
-    color: #333;
-    margin-right: 8px;
-    margin-left: 12px;
-    font-weight: 700;
-}
-
-/* Microtópico filho */
-ul.micro-filho>li {
-    margin: .34em 0;
-}
-
-ul.micro-filho li::before {
-    content: "◦ ";
-    color: #555;
-    margin-right: 8px;
-    margin-left: 14px;
-    font-weight: 700;
-}
-
-
-/* Components (zebra) */
+/* Components 🦓 (zebra) para Seções */
 .component {
-    position: relative;
-    border-left: 3px solid rgba(0, 119, 204, 0.12);
+    /* Preparação para flexibilidade futura de objetos filhos*/
+    position: relative; 
+    /* Cor semântica da borda esquerda*/
+    border-left: 3px solid var(--divider-muted);
+    /* Padding e Margin - Espaço interno e externo*/
     padding: 14px;
     margin: 14px 0;
-    border-radius: 10px;
+    /* Arrendondamento da borda */
+    border-radius: var(--box-info-radius, 10px);
+    /* Transição suave do hover */
     transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.component:nth-of-type(odd) {
+    /* Background padrão */
     background: var(--zebra1);
 }
 
+/* Background para seções ímpares 🧮*/
+.component:nth-of-type(odd) {
+    /* nth-of-type 📳 - Aplica para todo tipo de tag */
+    background: var(--zebra1);
+}
+
+/* Background para seções pares 🧦 */
 .component:nth-of-type(even) {
     background: var(--zebra2);
 }
 
+/* Animação hover/flutuação */
 .component:hover {
+    /* Levanta 📨 card - transform é GPU-friendly */
     transform: translateY(-6px);
-    box-shadow: 0 22px 48px rgba(9, 20, 40, 0.08), 0 0 30px rgba(154, 123, 255, 0.05);
+    /* Sombra e Glow */
+    box-shadow: 
+    0 22px 48px var(--box-info-shadow-hover), 
+    0 0 30px var(--box-info-glow2);
 }
 
+/* Subtítulos 📐 */
 .component h3 {
     font-family: 'Fredoka', sans-serif;
     color: var(--accent-dark);
+    /* Margem para elementos de baixo*/
     margin: 0 0 8px;
+    /* Exibição flexível horizontal (row / lado a lado) */
     display: flex;
+    /* Alinhamento vertical, para horizontal use justify-content*/
     align-items: center;
     gap: 8px;
     font-size: 1.4em;
-    /* alguns pixels maior */
+    /* Posição relativa para símbolos ao redor */
     position: relative;
+    /* Múltiplas camadas de sombra */
     text-shadow:
-        1px 1px 0px rgba(255, 255, 255, 0.8),
-        -1px -1px 0px rgba(255, 255, 255, 0.8),
+        1px 1px 0px var(--color-bg-light),
+        -1px -1px 0px var(--color-bg-light),
         2px 1px 0px rgba(255, 255, 255, 0.5),
         -2px -1px 0px rgba(255, 255, 255, 0.5),
         3px 2px 0px rgba(255, 255, 255, 0.3),
         -3px -2px 0px rgba(255, 255, 255, 0.3);
-    /* estrelas mínimas */
 }
 
-/* Opcional: estrelas extras piscando ao redor */
-.component h3::before,
+/* Pseudo-elementos: estrelas 💫 extras piscando ao redor */
+.component h3::before, /* Ambos antes e depois */
 .component h3::after {
+    /* Definição dos símbolos ao redor do título*/
     content: "✦";
-    color: var(--accent-mid);
+    color: var(--divider-accent);
     font-weight: 700;
     font-size: 0.5em;
+    /* Alternate é uma animação de 'vai e volta' */
     animation: twinkle 2s infinite ease-in-out alternate;
 }
 
+/* Animação pisca-pisca 🎄 */
 @keyframes twinkle {
     0% {
         opacity: 0.4;
         transform: scale(0.9);
     }
-
     50% {
         opacity: 1;
         transform: scale(1);
     }
-
     100% {
         opacity: 0.4;
         transform: scale(0.9);
     }
 }
 
-
-/* Code blocks */
-pre.code {
-    background: rgba(15, 23, 32, 0.06);
-    padding: 12px;
-    border-radius: 10px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+/* Code blocks / Bloco de 👩‍💻 Código */
+pre.code { /* Texto Pré-Formatado - Mantém espaços, quebras e tabublações*/
+    background: var(--code-bg);
+    color: var(--code-fg);
+    /* Espaço interno */
+    padding: var(--code-pad);
+    border-radius: var(--code-radius);
+    /* Fontes monoespaçadadas - ocupam o mesmo espaço */
+    font-family: var(--code-font);
+    /* Scroll horizontal */
     overflow: auto;
     font-size: .95em;
+    /* Espaço externo */
     margin: 10px 0;
-    border: 1px dashed rgba(0, 0, 0, 0.05);
+    /* Borda tracejada */
+    border: 1px dashed var(--code-border);
+    /* Quebra de linha caso ultrapassar largura de container */
     white-space: pre-wrap;
+    /* Quenra de palavras caso ultrapassar largura de container*/
     word-break: break-word;
+    /* Sombra*/
+    box-shadow: 0 8px 20px var(--code-shadow);
 }
 
-/* Images */
+/* Seleção de texto 📌 dentro do code  */
+pre.code::selection,
+pre.code *::selection {
+    background: var(--code-token-selection-bg);
+    color: var(--code-token-selection-fg);
+}
+
+/* Tokens de sintaxe 👾 dentro do pre.code */
+/* Keywords - Palavras chaves de linguagem */
+pre.code .token.keyword      { color: var(--code-token-keyword); font-weight: 600; }
+/* String, Number */
+pre.code .token.string       { color: var(--code-token-string); }
+pre.code .token.number       { color: var(--code-token-number); }
+/* Nomes de Funções*/
+pre.code .token.function     { color: var(--code-token-function); }
+/* // Comentários */
+pre.code .token.comment      { color: var(--code-token-comment); font-style: italic; }
+/* Tags HTML*/
+pre.code .token.tag          { color: var(--code-token-tag); }
+/* Atributos de tags*/
+pre.code .token.attr-name,
+pre.code .token.attr         { color: var(--code-token-attr); }
+/* Operadores e Pontuações*/
+pre.code .token.operator     { color: var(--code-token-operator); }
+pre.code .token.punctuation  { color: var(--code-token-punctuation); }
+
+/* Imagens 📹 */
 .image-center {
+    /* Alinhamentos e Espaçamentos */
     text-align: center;
     margin: 12px 0;
     padding: 6px 0;
 }
 
+/* */
 .image-center img {
     max-width: 100%;
     border-radius: 14px;
@@ -1044,7 +1170,7 @@ pre.code {
     filter: saturate(1.03) drop-shadow(0 0 18px rgba(77, 224, 255, 0.10));
 }
 
-/* Caption */
+/* Caption / Legenda 📇 de imagem */
 .caption {
     font-family: 'Belanosima', sans-serif;
     color: var(--accent-dark);
@@ -1100,12 +1226,12 @@ input:focus,
 }
 
 /* Redução de Movimento 👐 do UX */
-/* @media (prefers-reduced-motion: reduce) 
-  * { animation-duration: 0.001ms !important;   
-    transition-duration: 0.001ms !important; }  
-  .container::after, 
-  .image-center img, 
-  .box-info::before, 
-  .highlight { 
-    animation: none !important; }
-} */
+    /* @media (prefers-reduced-motion: reduce) 
+    * { animation-duration: 0.001ms !important;   
+        transition-duration: 0.001ms !important; }  
+    .container::after, 
+    .image-center img, 
+    .box-info::before, 
+    .highlight { 
+        animation: none !important; }
+    } */
